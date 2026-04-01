@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-
+import bg from "@/src/resource/bg.webp";
 const Petal = ({ delay, x, duration, size }: { delay: number; x: string; duration: number; size: number; key?: number }) => (
   <motion.div
     initial={{ y: -50, left: x, opacity: 0, rotate: 0 }}
@@ -34,26 +34,35 @@ export default function CherryBlossomBackground() {
   }));
 
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden">
-      {/* Background Image with Opacity */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60 z-0"
-        style={{
-          backgroundImage: 'url("https://ais-pre-2l5xkolwexce76jsfdnj6f-664953493170.asia-east1.run.app/api/image/1711950512000")',
-          backgroundColor: '#fdf2f8'
-        }}
-      />
+      <div className="fixed inset-0 pointer-events-none overflow-hidden">
+          {/* Background Image with Opacity */}
+          {/*<div*/}
+          {/*  className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60 z-0"*/}
+          {/*  style={{*/}
+          {/*    backgroundImage: `url("${bg}")`,*/}
+          {/*    backgroundColor: '#fdf2f8'*/}
+          {/*  }}*/}
+          {/*/>*/}
+          <div
+              className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+              style={{
+                  backgroundImage: `url(${bg})`,
+                  backgroundColor: '#fdf2f8'
+              }}
+          />
 
-      {/* Soft Overlays for Depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-pink-100/20 via-transparent to-pink-200/30 z-1" />
+          {/* 黑色遮罩 */}
+          <div className="absolute inset-0 bg-black/20"/>
+          {/* Soft Overlays for Depth */}
+          <div className="absolute inset-0 bg-gradient-to-b from-pink-100/20 via-transparent to-pink-200/30 z-1"/>
 
-      {/* Falling Petals Layer */}
-      {petals.map((petal) => (
-        <Petal key={petal.id} {...petal} />
-      ))}
+          {/* Falling Petals Layer */}
+          {petals.map((petal) => (
+              <Petal key={petal.id} {...petal} />
+          ))}
 
-      {/* Ground Petals (Static/Faded) */}
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-pink-200/40 to-transparent z-2" />
-    </div>
+          {/* Ground Petals (Static/Faded) */}
+          <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-pink-200/40 to-transparent z-2"/>
+      </div>
   );
 }

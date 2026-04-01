@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import Soli from "@/src/resource/soli.webp";
+import Soli from "/src/resource/soli.webp";
 
 interface HandRevealProps {
   isVisible: boolean;
@@ -34,7 +34,7 @@ export default function HandReveal({ isVisible }: HandRevealProps) {
               transition={{ 
                 scale: { delay: 0.8, duration: 1 },
                 opacity: { delay: 0.8, duration: 1 },
-                rotateY: { delay: 6.5, duration: 1.2, ease: "easeInOut" }
+                rotateY: { delay: 3, duration: 1.2, ease: "easeInOut" }
               }}
               style={{ transformStyle: "preserve-3d" }}
               className="w-full h-full relative z-10"
@@ -56,7 +56,7 @@ export default function HandReveal({ isVisible }: HandRevealProps) {
 
               {/* Back Side - Blank for Photo */}
               <div
-                  className="absolute inset-0 bg-white p-4 md:p-6 shadow-[0_40px_80px_rgba(0,0,0,0.5)] border border-gray-100 rounded-sm flex flex-col items-center justify-center"
+                  className="absolute inset-0 bg-white p-2 md:p-6 shadow-[0_40px_80px_rgba(0,0,0,0.5)] border border-gray-100 rounded-sm flex flex-col items-center justify-center"
                   style={{
                     backfaceVisibility: "hidden",
                     transform: "rotateY(180deg)"
@@ -71,7 +71,7 @@ export default function HandReveal({ isVisible }: HandRevealProps) {
             <motion.div 
               className="absolute -top-12 left-[10%] z-20 flex flex-col items-center"
               animate={{ y: [0, 0, -1000] }}
-              transition={{ delay: 3.5, duration: 1.5, times: [0, 0.7, 1] }}
+              transition={{ delay: 2.5, duration: 1.2, times: [0, 0.7, 1] }}
             >
               {/* Spindly Arm */}
               <div className="w-[29px] h-[100vh] bg-black absolute bottom-[90%] rounded-t-full shadow-2xl" />
@@ -83,7 +83,7 @@ export default function HandReveal({ isVisible }: HandRevealProps) {
             <motion.div 
               className="absolute -top-12 right-[10%] z-20 flex flex-col items-center"
               animate={{ y: [0, 0, -1000] }}
-              transition={{ delay: 3.5, duration: 1.5, times: [0, 0.7, 1] }}
+              transition={{ delay: 2.5, duration: 1.2, times: [0, 0.7, 1] }}
             >
               {/* Spindly Arm */}
               <div className="w-[29px] h-[100vh] bg-black absolute bottom-[90%] rounded-t-full shadow-2xl" />
